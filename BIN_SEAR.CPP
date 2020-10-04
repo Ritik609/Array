@@ -4,9 +4,10 @@ void bin_search(int a[8],int n,int key)
  {
    int l=0;
    int u=n-1;
-   int mid=(l+u)/2;
+   
    while(l<u)
-    {
+    {	
+	int mid=l + (u - l) / 2;	   //the mid should be calculated within this while loop and modified mid formula will handle overflow case
       if(a[mid]<key)
        {
 	u=mid-1;
@@ -18,6 +19,7 @@ void bin_search(int a[8],int n,int key)
       else if(a[mid]==key)
        {
 	 cout<<"\n\tElement found at:-"<<mid;
+	 break;   //to break the loop
        }
     }
  }
